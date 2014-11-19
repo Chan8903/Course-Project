@@ -41,7 +41,8 @@ A. README.md: this file describing the task and how it is carried out meeting re
 	
 B. run_analysis.R: The R script used to manipulate or Extract, Tranform and Load the data
 
-C. tidy: the R dataset which the run_analysis.R script produces
+C. tidy.txt: the R dataset which the run_analysis.R script produces. This is a text file as required
+				in the course project page evaluating the files.				
 
 D. Tidy file Codebook and File Layout.xlsx: describes how the data in the tidy file are structured
 	or organized (file layout) and the derivation of activity names used in the layout (codebook)
