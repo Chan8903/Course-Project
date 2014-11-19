@@ -36,12 +36,17 @@ You should create one R script called run_analysis.R that does the following.
 	each variable for each activity and each subject.
 
 Contents of the Repository Chan8903/Course-Project
+
 A. README.md: this file describing the task and how it is carried out meeting requirements
 	#1 though #5
+	
 B. run_analysis.R: The R script used to manipulate or Extract, Tranform and Load the data
+
 C. tidy: the R dataset which the run_analysis.R script produces
+
 D. Tidy file Codebook and File Layout.xlsx: describes how the data in the tidy file are structured
 	or organized (file layout) and the derivation of activity names used in the layout (codebook)
+	
 	
 	Each of the requirements #1 through #5 is met with a different file in this repository:
 									Compliance Matrix
