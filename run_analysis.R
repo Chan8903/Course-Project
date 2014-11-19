@@ -63,7 +63,7 @@
       names(look.2) <-sub("Group.2", "Activity", names(look.2))
       names(look.2) <-sub("SubjectID", "Subject", names(look.2))
     # write dataset meeting requirements 1.-5. into working or getwd() folder
-    write.table(look.2, file="tidy.txt", sep=",") # write to a text file, is csv
+    write.table(look.2, file="tidy.txt", sep=",",row.name=FALSE) # write to a text file, is csv
 # DATA LOADING
   # load the file back into R from working folder getwd()
     tidy.df <- as.data.frame(read.table("./tidy.txt")) 
