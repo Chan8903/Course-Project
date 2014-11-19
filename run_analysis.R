@@ -20,15 +20,14 @@
   # read unzipped files into a data frame
   # 2. extracting only the measurments on the mean and standard deviation
     test.data <-  read.table("./UCI HAR Dataset/test/X_test.txt")[,c(1, 2, 3, 4, 5, 6, 81, 82, 83, 84, 85, 86, 121, 122, 123, 124, 125, 126, 161, 162, 163, 164, 165, 166, 201, 202, 214, 215, 227, 228, 240, 241, 253, 254, 266, 267, 268, 269, 270, 271, 294, 295, 296, 345, 346, 347, 348, 349, 350, 373, 374, 375, 424, 425, 426, 427, 428, 429, 452, 453, 454, 503, 504, 513, 516, 517, 526, 529, 530, 539, 542, 543, 552, 555, 556, 557, 558, 559, 560, 561)]
+    train.data <-  read.table("./UCI HAR Dataset/train/X_train.txt")[,c(1, 2, 3, 4, 5, 6, 81, 82, 83, 84, 85, 86, 121, 122, 123, 124, 125, 126, 161, 162, 163, 164, 165, 166, 201, 202, 214, 215, 227, 228, 240, 241, 253, 254, 266, 267, 268, 269, 270, 271, 294, 295, 296, 345, 346, 347, 348, 349, 350, 373, 374, 375, 424, 425, 426, 427, 428, 429, 452, 453, 454, 503, 504, 513, 516, 517, 526, 529, 530, 539, 542, 543, 552, 555, 556, 557, 558, 559, 560, 561)]
     test.subject.ids <- read.table("./UCI HAR Dataset/test/subject_test.txt")
     names(test.subject.ids)<-sub("V1","SubjectID",names(test.subject.ids)) #rename vague generalized names to something meaningful
     test.activity.id <- read.table("./UCI HAR Dataset/test/y_test.txt")
-    test.data <- read.table("./UCI HAR Dataset/test/X_test.txt")
+    train.activity.id <- read.table("./UCI HAR Dataset/train/y_train.txt")
     train.subject.ids <- read.table("./UCI HAR Dataset/train/subject_train.txt")
     # rename V1 to and id variable
       names(train.subject.ids)<-sub("V1","SubjectID",names(train.subject.ids))#rename vague generalized names to something meaningful
-      train.activity.id <- read.table("./UCI HAR Dataset/train/y_train.txt")
-      train.data <-  read.table("./UCI HAR Dataset/train/X_train.txt")[,c(1, 2, 3, 4, 5, 6, 81, 82, 83, 84, 85, 86, 121, 122, 123, 124, 125, 126, 161, 162, 163, 164, 165, 166, 201, 202, 214, 215, 227, 228, 240, 241, 253, 254, 266, 267, 268, 269, 270, 271, 294, 295, 296, 345, 346, 347, 348, 349, 350, 373, 374, 375, 424, 425, 426, 427, 428, 429, 452, 453, 454, 503, 504, 513, 516, 517, 526, 529, 530, 539, 542, 543, 552, 555, 556, 557, 558, 559, 560, 561)]
 # DATA TRANSFORMATION 
   # 3 variable labels created with some excel magic but their derivation is 
       #    in the codebook, because it takes far too many lines here, making it
@@ -53,7 +52,8 @@
   # 5 creation of a tidy dataset with means per subject and activity
     # calculate the means by activity and subject:
       by(activity.df[,3:80], activity.df$SubjectID, colMeans)
-      aggdata <-aggregate(activity.df, by=list(activity.df$SubjectID,activity.df$ActivityID),FUN=mean)look.3 <- as.data.frame(aggdata)
+      aggdata <-aggregate(activity.df, by=list(activity.df$SubjectID,activity.df$ActivityID),FUN=mean)
+      look.2 <- as.data.frame(aggdata)
     # get rid of duplicative columns the agg function inserted: Group.1
     #     and identifers in the wrong column position(Subject s/b after Activity)
       look.2$Group.1 <- NULL
@@ -63,10 +63,10 @@
       names(look.2) <-sub("Group.2", "Activity", names(look.2))
       names(look.2) <-sub("SubjectID", "Subject", names(look.2))
     # write dataset meeting requirements 1.-5. into working or getwd() folder
-      write.table(look.2, file="tidy")
+    write.table(look.2, file="tidy.txt", sep=",") # write to a text file, is csv
 # DATA LOADING
-  # load the file back into R
-    tidy.df <- as.data.frame(read.table("./tidy")) 
+  # load the file back into R from working folder getwd()
+    tidy.df <- as.data.frame(read.table("./tidy.txt")) 
 #=====================================================================
 # Note, I was debating whether or not to rename the Activities
 # by name, e.g., walking, sitting, laying, instead of my number 1-5. I could
