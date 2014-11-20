@@ -52,7 +52,7 @@ D. Tidy file Codebook and File Layout.xlsx: describes how the data in the tidy f
 									#1	#2 	#3	#4 	#5
 	A. README.md (overview addressing rater's issues in Course Project Discussion FAQ)
 	B. run_analysis.R					x 	x 		x 
-	C. tidy.txt file											x 
+	C. tidy.txt file								x 
 	D. tidy file Codebook & layout				x 	x 
 
 
