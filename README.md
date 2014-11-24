@@ -46,6 +46,9 @@ C. tidy.txt: the R dataset which the run_analysis.R script produces. This is a t
 
 D. Tidy file Codebook and File Layout.xlsx: describes how the data in the tidy file are structured
 	or organized (file layout) and the derivation of activity names used in the layout (codebook)
+	These files are also available separately in pdf files as Tidy Codebook of movement measures
+		across activities of daily living.pdf and Tidy file Layout.pdf. Software to read the
+		pdf files is available at: http://www.adobe.com/products/reader.html
 
 	Each of the requirements #1 through #5 is met with a different file in this repository:
 									Compliance Matrix
@@ -54,7 +57,7 @@ D. Tidy file Codebook and File Layout.xlsx: describes how the data in the tidy f
 	B. run_analysis.R					x 	x 		x 
 	C. tidy.txt file								x 
 	D. tidy file Codebook & layout				x 	x 
-
+		Tidy Codebook.pdf, layout.pdf			x 	xlsx
 
    
 
